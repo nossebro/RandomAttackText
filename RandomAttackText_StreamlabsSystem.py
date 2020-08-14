@@ -154,9 +154,9 @@ def Execute(data):
 					Target = "ananonymouscheerer"
 		else:
 			try:
-				Target = Parent.GetDisplayName(data.GetParam(1))
+				Target = Parent.GetDisplayName(data.GetParam(1).replace("@", ""))
 			except:
-				Target = data.GetParam(1)
+				Target = data.GetParam(1).replace("@", "")
 		Level = 0
 		if Parent.HasPermission(data.User, "regular", ""):
 			Level = 1
