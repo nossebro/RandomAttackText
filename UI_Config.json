@@ -5,5 +5,11 @@
 		"value": false,
 		"label": "Debug Messages",
 		"tooltip": "Enables more detailed log messages"
+	},
+	"Blacklist": {
+		"type": "textbox",
+		"value": "ananonymouscheerer,streamelements,streamlabs,stay_hydrated_bot",
+		"label": "Blacklist",
+		"tooltip": "Comma separated list of users not to attack."
 	}
 }
