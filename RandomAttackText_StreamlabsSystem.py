@@ -16,7 +16,7 @@ from ConfigParser import ConfigParser
 ScriptName = 'RandomAttackText'
 Website = 'https://github.com/nossebro/RandomAttackText'
 Creator = 'nossebro'
-Version = '0.0.1'
+Version = '0.0.2'
 Description = 'Streamlabs Chatbot Template'
 
 #---------------------------------------
@@ -126,9 +126,10 @@ def Init():
 #---------------------------------------
 def Unload():
 	global Logger
-	for handler in Logger.handlers[:]:
-		Logger.removeHandler(handler)
-	Logger = None
+	if Logger:
+		for handler in Logger.handlers[:]:
+			Logger.removeHandler(handler)
+		Logger = None
 
 #---------------------------------------
 #   Chatbot Save Settings Function
@@ -137,6 +138,13 @@ def ReloadSettings(jsondata):
 	ScriptSettings.Reload(jsondata)
 	Logger.debug("Settings reloaded")
 	Parent.BroadcastWsEvent('{0}_UPDATE_SETTINGS'.format(ScriptName.upper()), json.dumps(ScriptSettings.__dict__))
+	global Commands
+	Commands = dict()
+	config = ConfigParser()
+	Logger.debug(config.readfp(codecs.open(ConfigFile, encoding="utf-8-sig", mode="r")))
+	for x in config.sections():
+		Commands[x.lower()] = dict()
+		Commands[x.lower()].update(config.items(x))
 
 #---------------------------------------
 #   Chatbot Execute Function
