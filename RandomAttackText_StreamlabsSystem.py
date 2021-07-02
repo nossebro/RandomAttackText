@@ -16,7 +16,7 @@ from ConfigParser import ConfigParser
 ScriptName = 'RandomAttackText'
 Website = 'https://github.com/nossebro/RandomAttackText'
 Creator = 'nossebro'
-Version = '0.0.3'
+Version = '0.0.4'
 Description = 'Streamlabs Chatbot Template'
 
 #---------------------------------------
@@ -177,9 +177,9 @@ def Execute(data):
 		match = re.match(r"!(?P<command>[\w]+)", data.GetParam(0))
 		if match and match.group("command").lower() in Commands:
 			if (("level" in Commands[match.group("command")] and Level >= int(Commands[match.group("command")]["level"])) or ("user" in Commands[match.group("command")] and Commands[match.group("command")]["user"].lower() == data.User)) and "response" in Commands[match.group("command")]:
-				Logger.debug("Replacing {{user}} with {0}".format(data.User))
+				Logger.debug("Replacing {{user}} with {0}".format(data.UserName))
 				Logger.debug("Replacing {{target}} with {0}".format(Target))
-				Text = Commands[match.group("command")]["response"].replace("{target}", Target).replace("{user}", data.User)
+				Text = Commands[match.group("command")]["response"].replace("{target}", Target).replace("{user}", data.UserName)
 				for x in Commands[match.group("command")]:
 					if x in [ "command", "user", "level", "response" ]:
 						continue
