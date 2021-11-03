@@ -189,6 +189,10 @@ def Execute(data):
 					Text = Text.replace("{{{0}}}".format(x), Options[Random])
 				Logger.debug(Text)
 				Parent.SendTwitchMessage(Text)
+			elif ("user" in Commands[match.group("command")] and Commands[match.group("command")]["user"].lower() != data.User) and "response" in Commands[match.group("command")]:
+				Text = ScriptSettings.WrongUserText.replace("{user}", Parent.GetDisplayName(data.User)).replace("{owner}", Parent.GetDisplayName(Commands[match.group("command")]["user"])).replace("{command}", match.group("command"))
+				Logger.debug(Text)
+				Parent.SendTwitchMessage(Text)
 
 #---------------------------------------
 #   Chatbot Tick Function

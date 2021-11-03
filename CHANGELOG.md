@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4 - Wrong user
+
+* Send a message if another user tries to use a user command.
+
 ## 0.0.3 - Bugfix
 
 * If if if

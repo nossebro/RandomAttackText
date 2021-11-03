@@ -11,5 +11,11 @@
 		"value": "ananonymouscheerer,streamelements,streamlabs,stay_hydrated_bot",
 		"label": "Blacklist",
 		"tooltip": "Comma separated list of users not to attack."
+	},
+	"WrongUserText": {
+		"type": "textbox",
+		"value": "Sorry {user}, the \"{command}\" command belongs to {owner}. If you'd like your own personal command you can unlock one at Lv 50!",
+		"label": "Wrong User Text",
+		"tooltip": "Text to reply with if another user tries to use a user's command."
 	}
 }
