@@ -16,7 +16,7 @@ from ConfigParser import ConfigParser
 ScriptName = 'RandomAttackText'
 Website = 'https://github.com/nossebro/RandomAttackText'
 Creator = 'nossebro'
-Version = '0.0.4'
+Version = '0.0.5'
 Description = 'Streamlabs Chatbot Template'
 
 #---------------------------------------

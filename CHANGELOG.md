@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.4 - Wrong user
+## 0.0.5 - Wrong user
 
 * Send a message if another user tries to use a user command.
 
