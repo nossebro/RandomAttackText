@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6 - Replace user and targets
+
+* Replace {user} and {target} in randomized options.
+
 ## 0.0.5 - Wrong user
 
 * Send a message if another user tries to use a user command.

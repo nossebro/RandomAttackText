@@ -16,8 +16,8 @@ from ConfigParser import ConfigParser
 ScriptName = 'RandomAttackText'
 Website = 'https://github.com/nossebro/RandomAttackText'
 Creator = 'nossebro'
-Version = '0.0.5'
-Description = 'Streamlabs Chatbot Template'
+Version = '0.0.6'
+Description = 'Lets viewers attack each other with random attacks'
 
 #---------------------------------------
 #   Script Variables
@@ -183,7 +183,8 @@ def Execute(data):
 				for x in Commands[match.group("command")]:
 					if x in [ "command", "user", "level", "response" ]:
 						continue
-					Options = Commands[match.group("command")][x].split("|")
+					Command = Commands[match.group("command")][x].replace("{target}", Target).replace("{user}", data.UserName)
+					Options = Command.split("|")
 					Random = random.SystemRandom().randrange(0, len(Options))
 					Logger.debug("Replacing {{{0}}} with {1}".format(x, Options[Random]))
 					Text = Text.replace("{{{0}}}".format(x), Options[Random])
